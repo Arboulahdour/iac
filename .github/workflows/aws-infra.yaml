@@ -49,7 +49,7 @@ jobs:
     -
         name: Deploy Infrastructure
         run: |
-          cd iac/terraform
+          cd terraform/aws
           terraform init
           terraform plan
     

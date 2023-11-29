@@ -1,4 +1,4 @@
-name: CI Pipeline For AWS Infrastructure
+name: Pipeline For AWS Infrastructure
 on:
   workflow_dispatch:
     inputs:

@@ -30,15 +30,6 @@ jobs:
     - 
         name: Checkout
         uses: actions/checkout@v3
-    # - 
-    #     name: Install Terraform
-    #     run: |
-    #       sudo apt-get update
-    #       sudo apt-get install -y unzip
-    #       curl -fsSL https://releases.hashicorp.com/terraform/0.15.0/terraform_0.15.0_linux_amd64.zip -o terraform.zip
-    #       unzip terraform.zip
-    #       sudo mv terraform /usr/local/bin/
-    #       terraform --version
     - 
         name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -49,9 +40,9 @@ jobs:
     -
         name: Deploy Infrastructure
         run: |
-          cd terraform/aws
-          terraform init
-          terraform plan
+            cd terraform/aws
+            terraform init
+            terraform plan
     
   apply:
     needs: ["setup"]
@@ -78,5 +69,5 @@ jobs:
     -
         name: Apply kubernetes files
         run: |
-          aws --version
-          # aws eks update-kubeconfig --region eu-north-1 --name eks-cluster
+            aws eks update-kubeconfig --region ${{ github.event.inputs.region }} --name eks-cluster
+            kubeclt get nodes

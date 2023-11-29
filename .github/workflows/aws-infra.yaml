@@ -70,5 +70,4 @@ jobs:
         name: Apply kubernetes files
         run: |
             aws eks update-kubeconfig --region ${{ github.event.inputs.region }} --name eks-cluster
-            which kubectl
-            #kubeclt get nodes
+            /usr/bin/kubectl get nodes

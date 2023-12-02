@@ -42,7 +42,7 @@ jobs:
         run: |
             cd terraform/aws
             terraform init
-            terraform destroy --auto-approve
+            terraform apply --auto-approve
     
   apply:
     needs: ["setup"]
